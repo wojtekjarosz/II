@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<h2 class="page-header">Dodawanie zdjęcia</h2>
+<table class="table">
+    <tbody>
+    <tr>
+        <td>
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <input type="submit" value="Dodaj" class="btn btn-success" />
+    {{ form_end(form) }}
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <a href="{{ path('photo_index') }}" class="btn btn-default">Powrót</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+{% endblock %}

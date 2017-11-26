@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h2 class="page-header">Autor - szczegóły</h2>
+
+    <table class="table table-striped">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ author.id }}</td>
+            </tr>
+            <tr>
+                <th>Imię</th>
+                <td>{{ author.name }}</td>
+            </tr>
+            <tr>
+                <th>Nazwisko</th>
+                <td>{{ author.surname }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+<table class="table">
+    <tbody>
+    <tr>
+        <td><a href="{{ path('author_index') }}"class="btn btn-default" >Powrót</a></td>
+    </tr>
+    <tr>
+        <td><a href="{{ path('author_edit', { 'id': author.id }) }}"class="btn btn-default">Edytuj</a></td>
+    </tr>
+    <tr>
+        <td>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Usuń" class="btn btn-danger">
+            {{ form_end(delete_form) }}
+        </td>
+    </tr>
+    </tbody>
+</table>
+{% endblock %}

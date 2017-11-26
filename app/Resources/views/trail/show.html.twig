@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <h2 class="page-header">Szlak - szczegóły</h2>
+
+    <table class="table table-striped">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ trail.id }}</td>
+            </tr>
+            <tr>
+                <th>Nazwa</th>
+                <td>{{ trail.name }}</td>
+            </tr>
+            <tr>
+                <th>Punkt początkowy</th>
+                <td>{{ trail.startPoint }}</td>
+            </tr>
+            <tr>
+                <th>Punkt końcowy</th>
+                <td>{{ trail.finalPoint }}</td>
+            </tr>
+            <tr>
+                <th>Kolor</th>
+                <td>{{ trail.colour }}</td>
+            </tr>
+            <tr>
+                <th>Czas</th>
+                <td>{{ trail.difficulty }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table class="table">
+    <tbody>
+    <tr>
+        <td><a href="{{ path('trail_index') }}" class="btn btn-default" >Powrót</a></td>
+
+    </tr>
+    <tr>
+        <td><a href="{{ path('trail_edit', { 'id': trail.id }) }}" class="btn btn-default">Edytuj</a></td>
+    </tr>
+    <tr>
+        <td>
+            {{ form_start(delete_form) }}
+            <input type="submit" value="Usuń" class="btn btn-danger">
+            {{ form_end(delete_form) }}</td>
+    </tr>
+    </tbody>
+    </table>
+{% endblock %}

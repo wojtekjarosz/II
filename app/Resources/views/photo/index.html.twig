@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h2 class="page-header">Zdjęcia</h2>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Zdjęcie</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for photo in photos %}
+            <tr>
+                <td><a href="{{ path('photo_show', { 'id': photo.id }) }}">{{ photo.id }}</a></td>
+                <td>{{ photo.photo }}</td>
+                <td><a href="{{ path('photo_show', { 'id': photo.id }) }}" class="btn btn-success">Szczegóły</a>
+                    <a href="{{ path('photo_edit', { 'id': photo.id }) }}" class="btn btn-default">Edytuj</a></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+
+            <a href="{{ path('photo_new') }}" class="btn btn-success">Dodaj zdjęcie</a>
+
+    </ul>
+{% endblock %}

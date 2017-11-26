@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h2 class="page-header">Zdjęcie - szczegóły</h2>
+
+    <table class="table table-striped">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ photo.id }}</td>
+            </tr>
+            <tr>
+                <th>Zdjęcie</th>
+                <td>{{ photo.photo }}</td>
+            </tr>
+            <tr>
+                <th>Szlak</th>
+                <td>{{ photo.trail }}</td>
+            </tr>
+            <tr>
+                <th>Autor</th>
+                <td>{{ photo.author }}</td>
+            </tr>
+            <tr>
+                <th>Ph</th>
+                <td>
+                    <img src="{{ asset( "uploads/images/"~photo.path) }}" alt="cos tam">
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+<table class="table">
+    <tbody>
+    <tr>
+        <td> <a href="{{ path('photo_index') }}" class="btn btn-default" >Powrót</a></td>
+    </tr>
+    <tr>
+           <td> <a href="{{ path('photo_edit', { 'id': photo.id }) }}" class="btn btn-default">Edytuj</a></td>
+    </tr>
+    <tr>
+        <td>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Usuń" class="btn btn-danger">
+            {{ form_end(delete_form) }}
+        </td>
+    </tr>
+    </tbody>
+</table>
+{% endblock %}

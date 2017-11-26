@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h2 class="page-header">Szlaki</h2>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nazwa</th>
+                <th>Pkt początkowyt</th>
+                <th>Pkt końcowy</th>
+                <th>Kolor</th>
+                <th>Czas</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for trail in trails %}
+            <tr>
+                <td><a href="{{ path('trail_show', { 'id': trail.id }) }}">{{ trail.id }}</a></td>
+                <td>{{ trail.name }}</td>
+                <td>{{ trail.startPoint }}</td>
+                <td>{{ trail.finalPoint }}</td>
+                <td>{{ trail.colour }}</td>
+                <td>{{ trail.difficulty }}</td>
+                <td><a href="{{ path('trail_show', { 'id': trail.id }) }}" class="btn btn-success">Szczegóły</a></td>
+                <td><a href="{{ path('trail_edit', { 'id': trail.id }) }}" class="btn btn-default">Edytuj</a></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+            <a href="{{ path('trail_new') }}" class="btn btn-success">Dodaj szlak</a>
+
+    </ul>
+{% endblock %}
